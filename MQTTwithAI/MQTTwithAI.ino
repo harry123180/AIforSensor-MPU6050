@@ -31,11 +31,12 @@ const unsigned long MIN_PUBLISH_INTERVAL = 1000;  // 最小發布間隔 1 秒
 
 // AI 推論參數
 static float features[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
-const int SAMPLE_INTERVAL_MS = 1;  // 1ms = 1000Hz
+const int SAMPLE_INTERVAL_MS = 1;  // 取樣間隔 1ms（1000Hz）/ Sampling interval 1 ms (1000 Hz)
 unsigned long last_sample_time = 0;
 int feature_ix = 0;
 
-// ==================== 資料結構 ====================
+// ==================== 資料結構 / Data structures ====================
+// 設定儲存結構 / Configuration storage struct
 struct Config {
     char wifi_ssid[32];
     char wifi_password[64];
@@ -45,6 +46,7 @@ struct Config {
     bool valid;
 };
 
+// 推論結果緩衝 / Inference result buffer
 struct InferenceData {
     float case1_confidence;
     float case2_confidence;
@@ -77,7 +79,7 @@ InferenceData currentInference;
 // MQTT 主題定義
 String topic_inference = "sensors/factory_team01/ai/inference";
 String topic_status = "sensors/factory_team01/status";
-String topic_command;  // 命令主題將在 initConfig 中設定
+String topic_command;  // 指令主題於 initConfig 初始化 / Command topic set in initConfig
 
 // ==================== MPU6050 & AI 功能 ====================
 /**
@@ -900,6 +902,7 @@ void printMQTTError(int state) {
 }
 
 // ==================== 主程式 ====================
+// 初始化 Wi-Fi、MQTT 與 IMU / Initialize Wi-Fi, MQTT, and IMU
 void setup() {
     pinMode(LED_PIN, OUTPUT);
     pinMode(RESET_PIN, INPUT_PULLUP);
@@ -935,6 +938,7 @@ void setup() {
     Serial.println("Setup complete - starting continuous inference");
 }
 
+// 主迴圈：處理配置、取樣與傳輸 / Main loop: handle config, sampling, and publish
 void loop() {
     server.handleClient();
     

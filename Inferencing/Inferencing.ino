@@ -17,18 +17,20 @@
 
   // 採樣控制
   unsigned long last_sample_time = 0;
-  const int SAMPLE_INTERVAL_MS = 1;  // 1ms = 1000Hz
+  const int SAMPLE_INTERVAL_MS = 1;  // 取樣間隔 1ms（1000Hz）/ Sampling interval 1 ms (1000 Hz)
   int feature_ix = 0;
   bool sampling_done = false;
 
   /**
-  * @brief      取得原始資料的回調函式
+  * @brief      感測器資料供 Edge Impulse 讀取 / Provide sensor data for Edge Impulse
+  *             取得原始資料的回調函式
   */
   int raw_feature_get_data(size_t offset, size_t length, float *out_ptr) {
       memcpy(out_ptr, features + offset, length * sizeof(float));
       return 0;
   }
 
+  // 初始化序列埠與 MPU6050 / Initialize serial and MPU6050
   void setup() {
       Serial.begin(115200);
       while (!Serial);
@@ -79,6 +81,7 @@
       Serial.println("\n>>> Inference started <<<\n");
   }
 
+  // 主迴圈：取樣並執行推論 / Main loop: sample and run inference
   void loop() {
       // 階段1: 收集資料
       Serial.println("Collecting data...");
