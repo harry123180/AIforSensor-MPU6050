@@ -1,4 +1,4 @@
-﻿# Edge Impulse 三軸加速度資料格式
+﻿﻿# Edge Impulse 三軸加速度資料格式
 
 ## 檔名命名規則
 - 以 `case<編號>.sample<序號>.csv` 命名，例如 `case1.sample3.csv`。

@@ -1,4 +1,4 @@
-﻿# Edge Impulse + Raspberry Pi Pico 2 W 整合教學
+﻿﻿# Edge Impulse + Raspberry Pi Pico 2 W 整合教學
 
 ## 目錄
 1. [建立 Edge Impulse 專案](#建立-edge-impulse-專案)

@@ -1,4 +1,4 @@
-﻿# Raspberry Pi Pico 2 W Wi-Fi 使用指南
+﻿﻿# Raspberry Pi Pico 2 W Wi-Fi 使用指南
 
 ## 概述
 Raspberry Pi Pico 2 W 內建 Infineon CYW43439 無線模組，可支援 2.4 GHz IEEE 802.11 b/g/n 網路標準。模組同時提供 Station 與 Soft-AP 模式，適合在 Edge Impulse AIoT 教學情境中進行感測資料上傳與現場設定工作。

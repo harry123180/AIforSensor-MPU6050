@@ -1,4 +1,4 @@
-﻿# Raspberry Pi Pico 2W 擴充板硬體配置
+﻿﻿# Raspberry Pi Pico 2W 擴充板硬體配置
 
 ## GPIO 對應表
 | 模組 | 訊號 | Pico 腳位 | 備註 |
