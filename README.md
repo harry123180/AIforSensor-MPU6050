@@ -1,6 +1,10 @@
 ﻿# Raspberry Pi Pico 2 W IMU AIoT 教學專案
 [English Version](#english-version)
 
+# Arduino IDE 安裝URL
+``` 
+https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+```
 ## 專案簡介
 - 使用 Raspberry Pi Pico 2 W 與 MPU6050 三軸 IMU，以 1 kHz 取樣速度蒐集動作資料並保存於 SD 卡。
 - 透過 Edge Impulse 訓練 TinyML 模型，於裝置端即時推論並透過 Wi-Fi/MQTT 上傳結果。
