@@ -2,7 +2,7 @@
   * MPU6050 三軸加速度計推論程式
   */
 
-  #include <EdgeAI_inferencing.h>
+  #include <a20260414_inferencing.h>
   #include <Wire.h>
 
   // 記憶體優化

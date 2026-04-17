@@ -1,9 +1,12 @@
 ﻿# Repository Guidelines
 
 ## Project Structure & Module Organization
-- `CollectData`, `CollectDataV2`, `MPU6050Code`, `Inferencing`, and `MQTTwithAI` contain the primary Raspberry Pi Pico W sketches; each folder holds a single `.ino` entry point for one workflow (data capture, training, inference, or MQTT streaming).
-- `BTNCode`, `RGBLEDCode`, `WifiConnector`, `DHT11MQTT`, and the archived PM2.5 examples provide focused sensor or peripheral demos; reuse helpers from these sketches instead of duplicating logic.
-- `PCB/` stores board layout images, and the localized guides in `docs/` describe hardware assembly and data formats—update them whenever pinouts or peripherals change.
+- Target board: **Raspberry Pi Pico 2 W** (FQBN `rp2040:rp2040:pico_w`). Arduino IDE requires each folder name to match its single `.ino` entry point.
+- **Primary sketches** (core teaching flow): `CollectData/`, `CollectDataV2/`, `Inferencing/`, `MQTTwithAI/`. These drive the end-to-end path from data capture → model training → on-device inference → MQTT publishing.
+- **Sensor & peripheral demos**: `BTNCode/`, `RGBLEDCode/`, `SDCardWrite/`, `MPU6050Code/`, `example/`. Use them to verify wiring and to crib working snippets — do not duplicate this logic into primary sketches.
+- **Reusable templates**: `WifiConnector/` (standalone Wi-Fi AP provisioning skeleton), `DHT11MQTT/` (parallel non-IMU MQTT example). Refactor toward these when extracting shared Wi-Fi/MQTT code.
+- `Data/` stores collected CSV samples; `PCB/` stores board Gerber + schematic; `docs/` holds zh-TW/en guides, slide decks, and the `EdgeImpulseCourse/` archive. Update hardware docs whenever pinouts or peripherals change.
+- Every directory ships its own `README.md`. When adding a new folder, add a `README.md` alongside the new `.ino`.
 
 ## Build, Test, and Development Commands
 - Open sketches in Arduino IDE 2.x with board `Raspberry Pi Pico W`, or run `arduino-cli compile --fqbn rp2040:rp2040:pico_w CollectData/CollectData.ino` to build headlessly.
